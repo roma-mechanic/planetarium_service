@@ -16,6 +16,12 @@ class ShowTheme(models.Model):
 
 class PlanetariumDome(models.Model):
     name = models.CharField(max_length=63)
+    address = models.CharField(max_length=63)
+    city_state_province = models.CharField(max_length=63)
+    country = models.CharField(max_length=63)
+    phone = models.CharField(max_length=63)
+    website = models.URLField(max_length=200)
+    dome_size = models.IntegerField()
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
 
@@ -38,7 +44,9 @@ class AstronomyShow(models.Model):
     title = models.CharField(max_length=63)
     description = models.TextField()
     duration = models.IntegerField()
-    theme = models.ManyToManyField(ShowTheme, blank=True, related_name="astronomy_show")
+    theme = models.ManyToManyField(
+        ShowTheme, blank=True, related_name="astronomy_show"
+    )
     image = models.ImageField(null=True, upload_to=movie_image_file_path)
 
     class Meta:
@@ -66,7 +74,9 @@ class ShowSession(models.Model):
 
 class Reservation(models.Model):
     created_at = models.DateTimeField()
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE
+    )
 
     class Meta:
         ordering = ["-created_at"]
@@ -127,7 +137,10 @@ class Ticket(models.Model):
         )
 
     def __str__(self):
-        return f"{str(self.show_session)} (" f"row: {self.row}, seat: {self.seat})"
+        return (
+            f"{str(self.show_session)} ("
+            f"row: {self.row}, seat: {self.seat})"
+        )
 
     class Meta:
         unique_together = ("show_session", "row", "seat")
