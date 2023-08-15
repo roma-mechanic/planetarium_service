@@ -21,12 +21,11 @@ class PlanetariumDome(models.Model):
     country = models.CharField(max_length=63)
     phone = models.CharField(max_length=63)
     website = models.URLField(max_length=200)
-    dome_size = models.IntegerField()
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
 
     @property
-    def capacity(self):
+    def seating_capacity(self):
         return self.rows * self.seats_in_row
 
     def __str__(self):

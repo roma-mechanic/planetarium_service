@@ -20,8 +20,7 @@ class PlanetariumDomeSerializers(serializers.ModelSerializer):
             "country",
             "phone",
             "website",
-            "dome_size",
             "rows",
             "seats_in_row",
-            "capacity",
+            "seating_capacity",
         )
