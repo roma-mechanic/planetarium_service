@@ -29,7 +29,9 @@ class PlanetariumDome(models.Model):
         return self.rows * self.seats_in_row
 
     def __str__(self):
-        return f"Planetarium dome: {self.name}, capacity: {self.capacity}"
+        return (
+            f"Planetarium dome: {self.name}, capacity: {self.seating_capacity}"
+        )
 
 
 def movie_image_file_path(instance, filename):
@@ -68,7 +70,7 @@ class ShowSession(models.Model):
         ordering = ["-show_time"]
 
     def __str__(self):
-        return self.astronomy_show.title + " " + str(self.show_time)
+        return f"{self.astronomy_show.title}  {self.show_time}min"
 
 
 class Reservation(models.Model):
@@ -81,7 +83,7 @@ class Reservation(models.Model):
         ordering = ["-created_at"]
 
     def __str__(self):
-        return self.created_at
+        return str(self.created_at)
 
 
 class Ticket(models.Model):
