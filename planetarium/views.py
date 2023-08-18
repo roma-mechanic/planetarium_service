@@ -99,6 +99,23 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="title",
+                type=str,
+                description="Filter by title (ex. ?title=Mars)",
+            ),
+            OpenApiParameter(
+                name="theme",
+                type=str,
+                description="Filter by theme  (ex: ?theme=Solar)",
+            ),
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
 
 class ShowSessionViewSet(viewsets.ModelViewSet):
     queryset = ShowSession.objects.select_related(
@@ -127,7 +144,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
             OpenApiParameter(
                 name="astronomy_show",
                 type=int,
-                description="Filter by astronomy show id (ex: ?movie=2)",
+                description="Filter by astronomy show id (ex: ?astronomy_show=2)",
             ),
             OpenApiParameter(
                 name="date",
@@ -161,6 +178,9 @@ class ReservationViewSet(viewsets.ModelViewSet):
         if self.action == "list":
             return ReservationListSerializer
         return ReservationSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
 
 
 class TicketViewSet(viewsets.ModelViewSet):
