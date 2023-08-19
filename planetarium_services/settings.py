@@ -146,7 +146,7 @@ REST_FRAMEWORK = {
 
 SPECTACULAR_SETTINGS = {
     "TITLE": "Planetarium Service API",
-    "DESCRIPTION": "Order cinema tickets",
+    "DESCRIPTION": "Order astronomic show tickets",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
     "SWAGGER_UI_SETTINGS": {

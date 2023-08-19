@@ -64,17 +64,6 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
     serializer_class = AstronomyShowSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
-    def get_queryset(self):
-        """Retrieve the astronomy show with filters"""
-        title = self.request.query_params.get("title")
-        theme = self.request.query_params.get("theme")
-        queryset = self.queryset
-        if title:
-            queryset = queryset.filter(title__icontains=title)
-        if theme:
-            queryset = queryset.filter(theme__icontains=theme)
-        return queryset.distinct()
-
     def get_serializer_class(self):
         if self.action == "list":
             return AstronomyShowListSerializer
@@ -99,6 +88,25 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    @staticmethod
+    def _params_to_ints(qs):
+        """Converts a list of string IDs to a list of integers"""
+        return [int(str_id) for str_id in qs.split(",")]
+
+    def get_queryset(self):
+        """Retrieve the astronomy show with filters"""
+        title = self.request.query_params.get("title")
+        theme = self.request.query_params.get("theme")
+        queryset = self.queryset
+
+        if title:
+            queryset = queryset.filter(title__icontains=title)
+
+        if theme:
+            theme_ids = self._params_to_ints(theme)
+            queryset = queryset.filter(theme__id__in=theme_ids)
+        return queryset.distinct()
+
     @extend_schema(
         parameters=[
             OpenApiParameter(
@@ -108,8 +116,8 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
             ),
             OpenApiParameter(
                 name="theme",
-                type=str,
-                description="Filter by theme  (ex: ?theme=Solar)",
+                type={"type": "list", "items": {"type": "number"}},
+                description="Filter by theme  (ex: ?theme=1,2)",
             ),
         ]
     )
@@ -120,12 +128,17 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
 class ShowSessionViewSet(viewsets.ModelViewSet):
     queryset = ShowSession.objects.select_related(
         "astronomy_show", "planetarium_dome"
-    ).annotate(tickets_available=(F("planetarium_dome__rows") * F("planetarium_dome__seats_in_row") - Count("ticket")))
+    ).annotate(
+        tickets_available=(
+            F("planetarium_dome__rows") * F("planetarium_dome__seats_in_row")
+            - Count("ticket")
+        )
+    )
     serializer_class = ShowSessionSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
     def get_queryset(self):
-        date = self.request.query_params.get("date")
+        date = self.request.query_params.get("show_time")
         astronomy_show_id_str = self.request.query_params.get("astronomy_show")
 
         queryset = self.queryset
@@ -135,7 +148,9 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(show_time__date=date)
 
         if astronomy_show_id_str:
-            queryset = queryset.filter(movie_id=int(astronomy_show_id_str))
+            queryset = queryset.filter(
+                astronomy_show_id=int(astronomy_show_id_str)
+            )
 
         return queryset
 
@@ -150,10 +165,13 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
                 name="date",
                 type=OpenApiTypes.DATE,
                 description="Filter by date show session "
-                            "(ex: ?date=2024-10-15)"
+                "(ex: ?date=2024-10-15)",
             ),
         ]
     )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
     def get_serializer_class(self):
         if self.action == "list":
             return ShowSessionListSerializer
