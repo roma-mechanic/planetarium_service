@@ -50,8 +50,20 @@ class PlanetariumDomeViewSet(viewsets.ModelViewSet):
         country = self.request.query_params.get("country")
         queryset = self.queryset
         if country:
-            queryset = queryset.filter(country__icontains=country)
+            queryset = queryset.filter(country=country)
         return queryset.distinct()
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="country",
+                type=str,
+                description="Filter planetarium dome by country (ex: ?country=Ukraine)",
+            )
+        ]
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -165,7 +177,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
                 name="date",
                 type=OpenApiTypes.DATE,
                 description="Filter by date show session "
-                "(ex: ?date=2024-10-15)",
+                "(ex: ?date=2023-08-18)",
             ),
         ]
     )
