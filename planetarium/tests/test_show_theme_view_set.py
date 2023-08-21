@@ -38,7 +38,6 @@ class AuthenticateShowThemeTests(TestCase):
             "goblin@goblin.com", "password"
         )
         self.client.force_authenticate(self.user)
-        pagination_class = PageNumberPagination
 
     def test_show_theme_list(self):
         sample_show_theme()

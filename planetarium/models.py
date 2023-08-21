@@ -19,8 +19,8 @@ class PlanetariumDome(models.Model):
     address = models.CharField(max_length=63)
     city_state_province = models.CharField(max_length=63)
     country = models.CharField(max_length=63)
-    phone = models.CharField(max_length=63)
-    website = models.URLField(max_length=200)
+    phone = models.CharField(max_length=63, null=True, blank=True)
+    website = models.URLField(max_length=150, blank=True, null=True)
     rows = models.IntegerField()
     seats_in_row = models.IntegerField()
 
