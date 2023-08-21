@@ -118,3 +118,44 @@ class AuthenticateAstronomyShowTests(TestCase):
         res = self.client.post(ASTRONOMY_SHOW_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+
+class AdminAstronomyShowApiTests(TestCase):
+    def setUp(self):
+        self.client = APIClient()
+        self.user = get_user_model().objects.create_user(
+            "admin@admin.com", "testpass", is_staff=True
+        )
+        self.client.force_authenticate(self.user)
+
+    def test_create_astro_show(self):
+        payload = {
+            "title": "test title",
+            "description": "Description",
+            "duration": 40,
+        }
+        res = self.client.post(ASTRONOMY_SHOW_URL, payload)
+
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        astro_show = AstronomyShow.objects.get(id=res.data["id"])
+        for key in payload.keys():
+            self.assertEqual(payload[key], getattr(astro_show, key))
+
+    def test_create_astro_show_with_show_theme(self):
+        theme_1 = sample_theme(name="test name 1")
+        theme_2 = sample_theme(name="test name 2")
+
+        payload = {
+            "title": "title 1",
+            "description": "Full description of astro show",
+            "duration": 30,
+            "theme": [theme_2.id, theme_1.id]
+        }
+        res = self.client.post(ASTRONOMY_SHOW_URL, payload)
+        astro_show = AstronomyShow.objects.get(id=res.data["id"])
+        theme = astro_show.theme.all()
+
+        self.assertEqual(res.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(theme.count(), 2)
+        self.assertIn(theme_1, theme)
+        self.assertIn(theme_2, theme)
