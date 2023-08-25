@@ -9,7 +9,12 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APIClient
 
-from planetarium.models import AstronomyShow, ShowTheme, PlanetariumDome, ShowSession
+from planetarium.models import (
+    AstronomyShow,
+    ShowTheme,
+    PlanetariumDome,
+    ShowSession,
+)
 from planetarium.serializers import (
     AstronomyShowListSerializer,
     AstronomyShowDetailSerializer,
@@ -20,14 +25,14 @@ SHOW_SESSION_URL = reverse("planetarium:showsession-list")
 
 
 def detail_url(astro_show_id: int):
-    return reverse(
-        "planetarium:astronomyshow-detail", args=[astro_show_id]
-    )
+    return reverse("planetarium:astronomyshow-detail", args=[astro_show_id])
 
 
 def image_upload_url(astro_show_id):
     """Return URL for recipe image upload"""
-    return reverse("planetarium:astronomyshow-upload-image", args=[astro_show_id])
+    return reverse(
+        "planetarium:astronomyshow-upload-image", args=[astro_show_id]
+    )
 
 
 def sample_astronomy_show(**params):
@@ -47,7 +52,7 @@ def sample_show_session(**params):
         city_state_province="any province",
         country="any country",
         rows=20,
-        seats_in_row=20
+        seats_in_row=20,
     )
     defaults = {
         "show_time": "2022-06-02 14:00:00",
@@ -176,7 +181,7 @@ class AdminAstronomyShowApiTests(TestCase):
             "title": "title 1",
             "description": "Full description of astro show",
             "duration": 30,
-            "theme": [theme_2.id, theme_1.id]
+            "theme": [theme_2.id, theme_1.id],
         }
         res = self.client.post(ASTRONOMY_SHOW_URL, payload)
         astro_show = AstronomyShow.objects.get(id=res.data["id"])
@@ -197,7 +202,9 @@ class MovieImageUploadTests(TestCase):
         self.client.force_authenticate(self.user)
         self.astronomy_show = sample_astronomy_show()
         self.theme = sample_theme()
-        self.show_session = sample_show_session(astronomy_show=self.astronomy_show)
+        self.show_session = sample_show_session(
+            astronomy_show=self.astronomy_show
+        )
 
     def tearDown(self):
         self.astronomy_show.image.delete()
@@ -223,7 +230,7 @@ class MovieImageUploadTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_post_image_to_astro_show_list_should_not_work(self):
+    def test_post_image_to_astro_show_list(self):
         url = ASTRONOMY_SHOW_URL
         with tempfile.NamedTemporaryFile(suffix=".jpg") as ntf:
             img = Image.new("RGB", (10, 10))
@@ -243,7 +250,7 @@ class MovieImageUploadTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         astro_show = AstronomyShow.objects.get(title="Title")
-        self.assertFalse(astro_show.image)
+        self.assertTrue(astro_show.image)
 
     def test_image_url_is_shown_on_astro_show_detail(self):
         url = image_upload_url(self.astronomy_show.id)

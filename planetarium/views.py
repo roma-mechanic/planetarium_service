@@ -140,20 +140,25 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
 class ShowSessionViewSet(viewsets.ModelViewSet):
     queryset = ShowSession.objects.select_related(
         "astronomy_show", "planetarium_dome"
-    ).annotate(
-        tickets_available=(
-            F("planetarium_dome__rows") * F("planetarium_dome__seats_in_row")
-            - Count("ticket")
-        )
     )
     serializer_class = ShowSessionSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
 
     def get_queryset(self):
+        queryset = self.queryset
+        if self.action == "list":
+            queryset = queryset.select_related(
+                "astronomy_show", "planetarium_dome"
+            ).annotate(
+                tickets_available=(
+                    F("planetarium_dome__rows")
+                    * F("planetarium_dome__seats_in_row")
+                    - Count("ticket")
+                )
+            )
+
         date = self.request.query_params.get("show_time")
         astronomy_show_id_str = self.request.query_params.get("astronomy_show")
-
-        queryset = self.queryset
 
         if date:
             date = datetime.strptime(date, "%Y-%m-%d").date()
@@ -164,7 +169,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
                 astronomy_show_id=int(astronomy_show_id_str)
             )
 
-        return queryset
+        return queryset.distinct()
 
     @extend_schema(
         parameters=[
