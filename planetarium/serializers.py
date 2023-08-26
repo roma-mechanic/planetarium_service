@@ -105,6 +105,12 @@ class ShowSessionListSerializer(serializers.ModelSerializer):
         )
 
 
+class ShowSessionShortListSerializer(ShowSessionListSerializer):
+    class Meta:
+        model = ShowSession
+        fields = ("astronomy_show_title",)
+
+
 class TicketSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         data = super(TicketSerializer, self).validate(attrs=attrs)
@@ -118,11 +124,38 @@ class TicketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ticket
-        fields = ("id", "row", "seat", "show_session")
+        fields = ("id", "row", "seat", "show_session", "reservation")
 
 
 class TickerListSerializer(TicketSerializer):
-    show_session = ShowSessionSerializer(many=False, read_only=True)
+    astronomy_show_name = serializers.CharField(
+        source="show_session.astronomy_show.title", read_only=True
+    )
+    planetarium_dome_name = serializers.CharField(
+        source="show_session.planetarium_dome.name", read_only=True
+    )
+    show_time = serializers.DateTimeField(
+        source="show_session.show_time", read_only=True
+    )
+    reservation_date = serializers.CharField(
+        source="reservation.created_at", read_only=True
+    )
+    reservation_owner = serializers.CharField(
+        source="reservation.user", read_only=True
+    )
+
+    class Meta:
+        model = Ticket
+        fields = (
+            "id",
+            "show_time",
+            "astronomy_show_name",
+            "planetarium_dome_name",
+            "reservation_date",
+            "reservation_owner",
+            "row",
+            "seat",
+        )
 
 
 class TicketSeatsSerializer(TicketSerializer):

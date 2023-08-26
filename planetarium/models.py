@@ -145,4 +145,4 @@ class Ticket(models.Model):
 
     class Meta:
         unique_together = ("show_session", "row", "seat")
-        ordering = ["row", "seat"]
+        ordering = ["show_session", "reservation"]

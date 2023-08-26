@@ -31,6 +31,7 @@ from planetarium.serializers import (
     AstronomyShowListSerializer,
     AstronomyShowDetailSerializer,
     AstronomyShowImageSerializer,
+    TickerListSerializer,
 )
 
 
@@ -222,3 +223,8 @@ class TicketViewSet(viewsets.ModelViewSet):
     queryset = Ticket.objects.select_related("show_session", "reservation")
     serializer_class = TicketSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+
+    def get_serializer_class(self):
+        if self.action == "list":
+            return TickerListSerializer
+        return TicketSerializer
