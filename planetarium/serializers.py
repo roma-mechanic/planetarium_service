@@ -124,10 +124,10 @@ class TicketSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Ticket
-        fields = ("id", "row", "seat", "show_session", "reservation")
+        fields = ("id", "row", "seat", "show_session")
 
 
-class TickerListSerializer(TicketSerializer):
+class TicketListSerializer(TicketSerializer):
     astronomy_show_name = serializers.CharField(
         source="show_session.astronomy_show.title", read_only=True
     )
@@ -168,7 +168,7 @@ class ShowSessionDetailSerializer(serializers.ModelSerializer):
     planetarium_dome = PlanetariumDomeSerializer(many=False, read_only=True)
     astronomy_show = AstronomyShowListSerializer(many=False, read_only=True)
     taken_places = TicketSeatsSerializer(
-        source="ticket",
+        source="tickets",
         many=True,
         read_only=True,
     )
@@ -185,24 +185,27 @@ class ShowSessionDetailSerializer(serializers.ModelSerializer):
 
 
 class ReservationSerializer(serializers.ModelSerializer):
-    ticket = TicketSerializer(read_only=False, allow_null=False)
+    tickets = TicketSerializer(many=True, read_only=False, allow_null=False)
 
     class Meta:
         model = Reservation
-        fields = ("id", "ticket", "created_at", "user")
+        fields = ("id", "tickets")
 
     def create(self, validated_data):
         with transaction.atomic():
-            tickets_data = validated_data.pop("ticket")
+            tickets_data = validated_data.pop("tickets")
+            print(tickets_data)
             reservation = Reservation.objects.create(**validated_data)
             for ticket_data in tickets_data:
+                print(ticket_data)
                 Ticket.objects.create(reservation=reservation, **ticket_data)
             return reservation
 
 
 class ReservationListSerializer(ReservationSerializer):
-    ticket = TickerListSerializer(many=True, read_only=True)
+    tickets = TicketListSerializer(many=True, read_only=True)
+    reservation_owner = serializers.CharField(source="user", required=True)
 
     class Meta:
         model = Reservation
-        fields = ("id", "ticket", "created_at", "user")
+        fields = ("id", "tickets", "created_at", "reservation_owner")

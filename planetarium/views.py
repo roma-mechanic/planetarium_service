@@ -31,7 +31,7 @@ from planetarium.serializers import (
     AstronomyShowListSerializer,
     AstronomyShowDetailSerializer,
     AstronomyShowImageSerializer,
-    TickerListSerializer,
+    TicketListSerializer,
 )
 
 
@@ -154,7 +154,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
                 tickets_available=(
                     F("planetarium_dome__rows")
                     * F("planetarium_dome__seats_in_row")
-                    - Count("ticket")
+                    - Count("tickets")
                 )
             )
 
@@ -201,8 +201,8 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
 
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.prefetch_related(
-        "ticket__show_session__planetarium_dome",
-        "ticket__show_session__astronomy_show",
+        "tickets__show_session__planetarium_dome",
+        "tickets__show_session__astronomy_show",
     )
     serializer_class = ReservationSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
@@ -226,5 +226,7 @@ class TicketViewSet(viewsets.ModelViewSet):
 
     def get_serializer_class(self):
         if self.action == "list":
-            return TickerListSerializer
+            return TicketListSerializer
+        if self.action == "retrieve":
+            return TicketListSerializer
         return TicketSerializer
