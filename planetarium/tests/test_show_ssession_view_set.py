@@ -1,8 +1,3 @@
-import os
-import tempfile
-
-from PIL import Image
-from django.db.models import F, Count
 from django.test import TestCase
 
 from django.contrib.auth import get_user_model
@@ -16,13 +11,10 @@ from planetarium.models import (
     ShowSession,
 )
 from planetarium.serializers import (
-    AstronomyShowListSerializer,
-    AstronomyShowDetailSerializer,
     ShowSessionListSerializer,
     ShowSessionSerializer,
     ShowSessionDetailSerializer,
 )
-from planetarium.views import ShowSessionViewSet
 
 ASTRONOMY_SHOW_URL = reverse("planetarium:astronomyshow-list")
 SHOW_SESSION_URL = reverse("planetarium:showsession-list")
@@ -136,13 +128,13 @@ class AuthenticateShowSessionTests(TestCase):
     def test_show_session_filter_by_astronomy_show_id(self):
         sample_show_session()
         another_astro_show = sample_astronomy_show(
-            title="another title",
-            description="any description",
-            duration=50
+            title="another title", description="any description", duration=50
         )
         sample_show_session(astronomy_show=another_astro_show)
 
-        res = self.client.get(SHOW_SESSION_URL, {"astronomy_show": f"{another_astro_show.id}"})
+        res = self.client.get(
+            SHOW_SESSION_URL, {"astronomy_show": f"{another_astro_show.id}"}
+        )
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data[0]["astronomy_show_title"], "another title")
@@ -176,12 +168,10 @@ class AdminShowSessionApiTests(TestCase):
             "planetarium_dome": plan_dome.id,
         }
         res = self.client.post(SHOW_SESSION_URL, payload)
-        # print(res.data)
 
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
 
         show_session = ShowSession.objects.get(id=res.data["id"])
         serializer = ShowSessionSerializer(show_session)
-        print(serializer.data)
         for key in payload.keys():
             self.assertEqual(payload[key], serializer.data[key])
