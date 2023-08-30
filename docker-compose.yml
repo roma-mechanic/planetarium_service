@@ -23,7 +23,7 @@ services:
   db:
     image: postgres:14-alpine3.14
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -d CinemaDB -U cinemauser" ]
+      test: [ "CMD-SHELL", "pg_isready -d PlanetariumDB -U startramp" ]
       interval: 5s
       timeout: 5s
       retries: 3
