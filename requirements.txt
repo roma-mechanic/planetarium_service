@@ -10,7 +10,7 @@ colorama==0.4.6
 Django==4.2.4
 django-debug-toolbar==4.2.0
 djangorestframework==3.14.0
-djangorestframework-simplejwt==5.2.2
+djangorestframework-simplejwt==5.3.0
 drf-spectacular==0.26.4
 flake8==6.1.0
 flake8-quotes==3.3.2
