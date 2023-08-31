@@ -16,7 +16,6 @@ router.register("planetarium_dome", PlanetariumDomeViewSet)
 router.register("astronomy_show", AstronomyShowViewSet)
 router.register("show_session", ShowSessionViewSet)
 router.register("reservation", ReservationViewSet)
-router.register("tickets", TicketViewSet)
 
 urlpatterns = [path("", include(router.urls))]
 

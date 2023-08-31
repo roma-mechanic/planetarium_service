@@ -8,6 +8,7 @@ from rest_framework.decorators import action
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 
+from pagination import AstroListPagination
 from planetarium.models import (
     ShowTheme,
     PlanetariumDome,
@@ -39,12 +40,14 @@ class ShowThemeViewSet(viewsets.ModelViewSet):
     queryset = ShowTheme.objects.all()
     serializer_class = ShowThemeSerializers
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    pagination_class = AstroListPagination
 
 
 class PlanetariumDomeViewSet(viewsets.ModelViewSet):
     queryset = PlanetariumDome.objects.all()
     serializer_class = PlanetariumDomeSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    pagination_class = AstroListPagination
 
     def get_queryset(self):
         """Retrieve the planetarium dome with filters"""
@@ -76,6 +79,7 @@ class AstronomyShowViewSet(viewsets.ModelViewSet):
     queryset = AstronomyShow.objects.prefetch_related("theme")
     serializer_class = AstronomyShowSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    pagination_class = AstroListPagination
 
     def get_serializer_class(self):
         if self.action == "list":
@@ -144,6 +148,7 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
     )
     serializer_class = ShowSessionSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    pagination_class = AstroListPagination
 
     def get_queryset(self):
         queryset = self.queryset
@@ -206,12 +211,13 @@ class ReservationViewSet(viewsets.ModelViewSet):
     )
     serializer_class = ReservationSerializer
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
+    pagination_class = AstroListPagination
 
     def get_queryset(self):
         return Reservation.objects.filter(user=self.request.user)
 
     def get_serializer_class(self):
-        if self.action == "list":
+        if (self.action == "list") | (self.action == "retrieve"):
             return ReservationListSerializer
         return ReservationSerializer
 
