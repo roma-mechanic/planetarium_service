@@ -29,7 +29,8 @@ class Migration(migrations.Migration):
                 (
                     "image",
                     models.ImageField(
-                        null=True, upload_to=planetarium.models.movie_image_file_path
+                        null=True,
+                        upload_to=planetarium.models.movie_image_file_path,
                     ),
                 ),
             ],

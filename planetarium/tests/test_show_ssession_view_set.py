@@ -82,28 +82,12 @@ class AuthenticateShowSessionTests(TestCase):
         show_session = ShowSession.objects.all()
         serializer = ShowSessionListSerializer(show_session, many=True)
 
-        print(res.data)
-        print(serializer.data)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            serializer.data[0]["show_time"], res.data[0]["show_time"]
-        )
-        self.assertEqual(
-            serializer.data[0]["planetarium_dome_name"],
-            res.data[0]["planetarium_dome_name"],
-        )
-        self.assertEqual(
-            serializer.data[0]["astronomy_show_title"],
-            res.data[0]["astronomy_show_title"],
-        )
-        self.assertEqual(
-            serializer.data[0]["astro_show_image"],
-            res.data[0]["astro_show_image"],
-        )
-        self.assertEqual(
-            serializer.data[0]["planetarium_dome_capacity"],
-            res.data[0]["planetarium_dome_capacity"],
-        )
+        for key in serializer.data[0]:
+            self.assertEqual(
+                serializer.data[0][key],
+                res.data["results"][0][key],
+            )
 
     def test_retrieve_show_session_details(self):
         show_session = sample_show_session()
@@ -122,8 +106,12 @@ class AuthenticateShowSessionTests(TestCase):
         res = self.client.get(SHOW_SESSION_URL, {"show_time": "2022-06-02"})
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(res.data[0]["show_time"], "2022-06-02T14:00:00")
-        self.assertNotEquals(res.data[0]["show_time"], "2022-06-03T14:00:00")
+        self.assertEqual(
+            res.data["results"][0]["show_time"], "2022-06-02T14:00:00"
+        )
+        self.assertNotEquals(
+            res.data["results"][0]["show_time"], "2022-06-03T14:00:00"
+        )
 
     def test_show_session_filter_by_astronomy_show_id(self):
         sample_show_session()
@@ -137,8 +125,13 @@ class AuthenticateShowSessionTests(TestCase):
         )
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(res.data[0]["astronomy_show_title"], "another title")
-        self.assertNotEquals(res.data[0]["astronomy_show_title"], "test title")
+
+        self.assertEqual(
+            res.data["results"][0]["astronomy_show_title"], "another title"
+        )
+        self.assertNotEquals(
+            res.data["results"][0]["astronomy_show_title"], "test title"
+        )
 
     def test_create_show_session_forbidden(self):
         payload = {

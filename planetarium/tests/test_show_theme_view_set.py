@@ -46,7 +46,7 @@ class AuthenticateShowThemeTests(TestCase):
         serializer = ShowThemeSerializers(show_theme, many=True)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(res.data, serializer.data)
+        self.assertEqual(res.data["results"], serializer.data)
 
     def test_retrieve_show_theme_details(self):
         theme = sample_show_theme()
@@ -76,6 +76,5 @@ class AdminShowThemeApiTest(TestCase):
         payload = {"name": "any name"}
         res = self.client.post(SHOW_THEME_URL, payload)
         theme = ShowTheme.objects.get(id=res.data["id"])
-        serializer = ShowThemeSerializers(theme)
         self.assertEqual(res.status_code, status.HTTP_201_CREATED)
         self.assertEqual(payload["name"], getattr(theme, "name"))

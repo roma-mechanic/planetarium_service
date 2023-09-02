@@ -96,7 +96,7 @@ class AuthenticateAstronomyShowTests(TestCase):
         serializer = AstronomyShowListSerializer(astro_show, many=True)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(res.data, serializer.data)
+        self.assertEqual(res.data["results"], serializer.data)
 
     def test_filter_by_title(self):
         astro_show_1 = sample_astronomy_show(title="title_1")
@@ -107,8 +107,8 @@ class AuthenticateAstronomyShowTests(TestCase):
         serializer_2 = AstronomyShowListSerializer(astro_show_2)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertIn(serializer_1.data, res.data)
-        self.assertNotIn(serializer_2.data, res.data)
+        self.assertIn(serializer_1.data, res.data["results"])
+        self.assertNotIn(serializer_2.data, res.data["results"])
 
     def test_filter_by_theme(self):
         astro_show_1 = sample_astronomy_show(title="title_1")
@@ -126,8 +126,8 @@ class AuthenticateAstronomyShowTests(TestCase):
         serializer_2 = AstronomyShowListSerializer(astro_show_2)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertIn(serializer_1.data, res.data)
-        self.assertNotIn(serializer_2.data, res.data)
+        self.assertIn(serializer_1.data, res.data["results"])
+        self.assertNotIn(serializer_2.data, res.data["results"])
 
     def test_retrieve_astro_show_details(self):
         astro_show = sample_astronomy_show()
@@ -272,7 +272,7 @@ class MovieImageUploadTests(TestCase):
             self.client.post(url, {"image": ntf}, format="multipart")
         res = self.client.get(ASTRONOMY_SHOW_URL)
 
-        self.assertIn("image", res.data[0].keys())
+        self.assertIn("image", res.data["results"][0])
 
     def test_image_url_is_shown_on_show_session_detail(self):
         url = image_upload_url(self.astronomy_show.id)
@@ -283,4 +283,4 @@ class MovieImageUploadTests(TestCase):
             self.client.post(url, {"image": ntf}, format="multipart")
         res = self.client.get(SHOW_SESSION_URL)
 
-        self.assertIn("astro_show_image", res.data[0].keys())
+        self.assertIn("astro_show_image", res.data["results"][0])

@@ -90,7 +90,7 @@ class AuthenticateReservationTests(TestCase):
         serializer = ReservationListSerializer(self.reservation)
 
         self.assertEqual(res.status_code, status.HTTP_200_OK)
-        self.assertEqual(res.data[0], serializer.data)
+        self.assertEqual(res.data["results"][0], serializer.data)
 
     def test_retrieve_reservation_details(self):
         self.reservation.tickets.add(self.ticket)
@@ -98,7 +98,7 @@ class AuthenticateReservationTests(TestCase):
         url = detail_url(self.reservation.id)
         res = self.client.get(url)
 
-        serializer = ReservationSerializer(self.reservation)
+        serializer = ReservationListSerializer(self.reservation)
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 

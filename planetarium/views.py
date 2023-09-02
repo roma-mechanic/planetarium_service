@@ -62,7 +62,8 @@ class PlanetariumDomeViewSet(viewsets.ModelViewSet):
             OpenApiParameter(
                 name="country",
                 type=str,
-                description="Filter planetarium dome by country (ex: ?country=Ukraine)",
+                description="Filter planetarium"
+                " dome by country (ex: ?country=Ukraine)",
             )
         ]
     )
@@ -182,7 +183,8 @@ class ShowSessionViewSet(viewsets.ModelViewSet):
             OpenApiParameter(
                 name="astronomy_show",
                 type=int,
-                description="Filter by astronomy show id (ex: ?astronomy_show=2)",
+                description="Filter by astronomy"
+                " show id (ex: ?astronomy_show=2)",
             ),
             OpenApiParameter(
                 name="date",

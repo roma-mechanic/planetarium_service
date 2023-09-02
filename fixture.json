@@ -1,0 +1,1132 @@
+[
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add astronomy show",
+    "content_type": 6,
+    "codename": "add_astronomyshow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change astronomy show",
+    "content_type": 6,
+    "codename": "change_astronomyshow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete astronomy show",
+    "content_type": 6,
+    "codename": "delete_astronomyshow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view astronomy show",
+    "content_type": 6,
+    "codename": "view_astronomyshow"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add planetarium dome",
+    "content_type": 7,
+    "codename": "add_planetariumdome"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change planetarium dome",
+    "content_type": 7,
+    "codename": "change_planetariumdome"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete planetarium dome",
+    "content_type": 7,
+    "codename": "delete_planetariumdome"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view planetarium dome",
+    "content_type": 7,
+    "codename": "view_planetariumdome"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add reservation",
+    "content_type": 8,
+    "codename": "add_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change reservation",
+    "content_type": 8,
+    "codename": "change_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete reservation",
+    "content_type": 8,
+    "codename": "delete_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view reservation",
+    "content_type": 8,
+    "codename": "view_reservation"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add show session",
+    "content_type": 9,
+    "codename": "add_showsession"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change show session",
+    "content_type": 9,
+    "codename": "change_showsession"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete show session",
+    "content_type": 9,
+    "codename": "delete_showsession"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view show session",
+    "content_type": 9,
+    "codename": "view_showsession"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add show theme",
+    "content_type": 10,
+    "codename": "add_showtheme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change show theme",
+    "content_type": 10,
+    "codename": "change_showtheme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete show theme",
+    "content_type": 10,
+    "codename": "delete_showtheme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view show theme",
+    "content_type": 10,
+    "codename": "view_showtheme"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add ticket",
+    "content_type": 11,
+    "codename": "add_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change ticket",
+    "content_type": 11,
+    "codename": "change_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete ticket",
+    "content_type": 11,
+    "codename": "delete_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view ticket",
+    "content_type": 11,
+    "codename": "view_ticket"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 12,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 12,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 12,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 12,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "planetarium",
+    "model": "astronomyshow"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "planetarium",
+    "model": "planetariumdome"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "planetarium",
+    "model": "reservation"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "planetarium",
+    "model": "showsession"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "planetarium",
+    "model": "showtheme"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "planetarium",
+    "model": "ticket"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "user",
+    "model": "user"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vlzu4hbkbkotk7h6s5pd4362k31zxaqb",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAURP-FtSG8Hy7d9xsIXC5SNZCUdmX8d9ukC13OnDPzJiFuaw3bwCXMmVwJJ5ffLkV4YjtAfsR27xR6W5c50UOhJx106hlft9P9O6hx1H1teWReG-W4UqYAZtxjZsoVzYqAiE4AE8xxJqWSvBhI1hmvefIFQVry-QLBOTcU:1qZvNc:q4tae7XeN35SoZz0gzih6dyRa9EOFYtr30cxXCTzs5w",
+    "expire_date": "2023-09-09T18:39:16.966"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 1,
+  "fields": {
+    "name": "Astronomy: 3000 Years of Stargazing"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 2,
+  "fields": {
+    "name": "Birth of the Solar System"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 3,
+  "fields": {
+    "name": "Destination Mars"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 4,
+  "fields": {
+    "name": "Destination Solar System"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 5,
+  "fields": {
+    "name": "Exoplanets: Discovering New Worlds"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 6,
+  "fields": {
+    "name": "Eight Planets and Counting"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 7,
+  "fields": {
+    "name": "Hubble Vision 2"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 8,
+  "fields": {
+    "name": "IBEX: Search for the Edge of the Solar System"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 9,
+  "fields": {
+    "name": "Imagine the Moon"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 10,
+  "fields": {
+    "name": "Light Years from Andromeda"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 11,
+  "fields": {
+    "name": "MarsQuest"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 12,
+  "fields": {
+    "name": "Moons: Worlds of Mystery"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 13,
+  "fields": {
+    "name": "Fragile Planet"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 14,
+  "fields": {
+    "name": "From Dream to Discovery: Inside NASA"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 15,
+  "fields": {
+    "name": "Incoming!"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 16,
+  "fields": {
+    "name": "Journey to a Billion Suns"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 17,
+  "fields": {
+    "name": "Planet Nine"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 18,
+  "fields": {
+    "name": "The Cowboy Astronomer"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 19,
+  "fields": {
+    "name": "Touching the Edge of the Universe"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 20,
+  "fields": {
+    "name": "Two Small Pieces of Glass"
+  }
+},
+{
+  "model": "planetarium.showtheme",
+  "pk": 21,
+  "fields": {
+    "name": "Voyager Encounters"
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 1,
+  "fields": {
+    "name": "Atmasfera 360 - Kiev Planetarium",
+    "address": "ul.Bolshaya Vasylkovska, 57/3",
+    "city_state_province": "03150 Kiev",
+    "country": "Ukraine",
+    "phone": "+38 44 338-19-91",
+    "website": "http://www.planet.org.ua/",
+    "rows": 21,
+    "seats_in_row": 15
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 2,
+  "fields": {
+    "name": "Kharkov Yu. A. Gagarina planetarium",
+    "address": "15 Kravtsova Lane",
+    "city_state_province": "61003 Kharkov",
+    "country": "Ukraine",
+    "phone": "+380 57-705-0019",
+    "website": "http://planetarium-kharkov.org/",
+    "rows": 16,
+    "seats_in_row": 10
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 3,
+  "fields": {
+    "name": "Planetarium Gagarine",
+    "address": "Vorontsovska St, 14",
+    "city_state_province": "73025 Kherson",
+    "country": "Ukraine",
+    "phone": "+380 552-22-3956",
+    "website": "http://planeta.ks.ua/",
+    "rows": 12,
+    "seats_in_row": 10
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 4,
+  "fields": {
+    "name": "Copernicus Science Centre",
+    "address": "ul. Wybrzeze Kosciuszkowskie 20",
+    "city_state_province": "00-390 Warsaw",
+    "country": "Poland",
+    "phone": "+48 22-596-4110 -111",
+    "website": "http://www.kopernik.org.pl/",
+    "rows": 14,
+    "seats_in_row": 10
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 5,
+  "fields": {
+    "name": "Wroclaw University",
+    "address": "ul. Kopernika 11, Budynek D",
+    "city_state_province": "51-622 Wroclaw",
+    "country": "Poland",
+    "phone": "+48 71-372-9373",
+    "website": "http://planetarium.astro.uni.wroc.pl",
+    "rows": 5,
+    "seats_in_row": 4
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 6,
+  "fields": {
+    "name": "Gymnasium. J. Hevelius Potarzyca k. Jarocin",
+    "address": "ul. Wyzwolenia 65 - Potarzyca",
+    "city_state_province": "63-200 Jarocin",
+    "country": "Poland",
+    "phone": "+48 508 945 405",
+    "website": "http://planetarium-potarzyca.prv.pl/",
+    "rows": 6,
+    "seats_in_row": 9
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 8,
+  "fields": {
+    "name": "Astronomische Station Samuel Heinrich Schwabe",
+    "address": "Peterholzstrasse 58",
+    "city_state_province": "06849 Dessau",
+    "country": "Germany",
+    "phone": "+49 340-850-4310",
+    "website": "http://www.schwabeverein.de/",
+    "rows": 7,
+    "seats_in_row": 6
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 9,
+  "fields": {
+    "name": "Astronomische Gesellschaft Magdeburg e. V.",
+    "address": "Pablo Picasso Strasse 21",
+    "city_state_province": "39128 Magdeburg",
+    "country": "Germany",
+    "phone": "+49 391-244-5862",
+    "website": "https://astronomiezentrum.jimdo.com/planetarium/",
+    "rows": 5,
+    "seats_in_row": 8
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 10,
+  "fields": {
+    "name": "Astronomische Vereinigung Augsburg e.V.",
+    "address": "Pestalozzistrasse 17a",
+    "city_state_province": "86420 Diedorf",
+    "country": "Germany",
+    "phone": "+49 8238-7344",
+    "website": "http://www.sternwarte-diedorf.de/",
+    "rows": 5,
+    "seats_in_row": 9
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 11,
+  "fields": {
+    "name": "Peter Harrison Planetarium",
+    "address": "Park Row",
+    "city_state_province": "London",
+    "country": "UK",
+    "phone": "+44 20 8312 6608",
+    "website": "https://www.rmg.co.uk/whats-on/planetarium-shows",
+    "rows": 13,
+    "seats_in_row": 10
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 12,
+  "fields": {
+    "name": "Glasgow Science Center Planetarium",
+    "address": "50 Pacific Quay",
+    "city_state_province": "Glasgow",
+    "country": "UK",
+    "phone": "+44 14-1420-5000",
+    "website": "https://www.glasgowsciencecentre.org/discover/our-experiences/planetarium",
+    "rows": 13,
+    "seats_in_row": 9
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 13,
+  "fields": {
+    "name": "Thinktank Planetarium",
+    "address": "Millennium Point, Curzon Street",
+    "city_state_province": "Birmingham",
+    "country": "UK",
+    "phone": "+44 121 348 8000",
+    "website": "http://www.birminghammuseums.org.uk/thinktank/highlights/planetarium",
+    "rows": 10,
+    "seats_in_row": 8
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 14,
+  "fields": {
+    "name": "Bedford School Planetarium",
+    "address": "Bedford School De Parys Avenue",
+    "city_state_province": "Bedford",
+    "country": "UK",
+    "phone": "+44 12-3436-2200",
+    "website": "http://www.bedfordschool.org.uk/venue-hire/obser",
+    "rows": 5,
+    "seats_in_row": 4
+  }
+},
+{
+  "model": "planetarium.planetariumdome",
+  "pk": 15,
+  "fields": {
+    "name": "Island Planetarium",
+    "address": "Fort Victoria Country Park, Westhill Lane",
+    "city_state_province": "Yarmouth, Isle of Wight",
+    "country": "UK",
+    "phone": "+44 198-376-1555",
+    "website": "http://www.islandastronomy.co.uk/",
+    "rows": 6,
+    "seats_in_row": 6
+  }
+},
+{
+  "model": "planetarium.astronomyshow",
+  "pk": 1,
+  "fields": {
+    "title": "Astronomy: 3000 Years of Stargazing",
+    "description": "Astronomy is often called the Уoldest science.Ф This program follows the progression of astronomy to its infancy with Stonehenge, Thales and Ptolemy to the modern day developments of the Hubble Space Telescope. A perfect blend of science and history.",
+    "duration": 34,
+    "image": "",
+    "theme": [
+      1
+    ]
+  }
+},
+{
+  "model": "planetarium.astronomyshow",
+  "pk": 2,
+  "fields": {
+    "title": "Birth of the Solar System",
+    "description": "How did our solar system originate? What chain of events led to its creation? Just as detectives look for traces of evidence to solve a mystery, astronomers analyze the evidence that points to the formation of the Sun and planets. In particular, they study the influence that impacts and collisions had on the worlds of the solar system. The most dramatic evidence for this collisional history of solar system evolution are the impact craters found on almost all the bodies in the solar system, including Earth. These surface scars tell us the formation history of planets, moons, and rings was violent. Yet today, we live in a relatively stable solar system, made possible by the shattering collisions that shaped our worlds.",
+    "duration": 21,
+    "image": "",
+    "theme": [
+      2
+    ]
+  }
+},
+{
+  "model": "planetarium.astronomyshow",
+  "pk": 3,
+  "fields": {
+    "title": "Destination Mars",
+    "description": "Explore the work being done around the globe to help make the dream of getting humans to Mars a reality. Fly through the International Space Station, where astronauts are already living and working in space. Follow the rockets and vehicles that will take humans beyond the Moon and, one day, all the way to Mars! Travel along as we imagine this remarkable journey.",
+    "duration": 32,
+    "image": "",
+    "theme": [
+      3
+    ]
+  }
+},
+{
+  "model": "planetarium.astronomyshow",
+  "pk": 4,
+  "fields": {
+    "title": "Destination Solar System",
+    "description": "Hop aboard the Space Express in the year 2096 to explore the Sun, moon and major planets.  Join Jesse, your highly enthusiastic tour guide and Max, the omni-competent on-board computer, on an odyssey around our dynamic solar system.    See solar flares, Martian canyons, exotic outer worlds moons and even glide through SaturnТs magnificent ring system.",
+    "duration": 33,
+    "image": "",
+    "theme": [
+      4
+    ]
+  }
+},
+{
+  "model": "planetarium.astronomyshow",
+  "pk": 5,
+  "fields": {
+    "title": "Eight Planets and Counting",
+    "description": "The omni-dome УEight Planets and CountingФ program guides you through the solar system: from our parent star, the Sun, out to the realm beyond Neptune. Along the way, weТll visit each of the eight planets in turn, weТll explore the Moon, and weТll fly through the asteroid belt.",
+    "duration": 32,
+    "image": "",
+    "theme": [
+      6
+    ]
+  }
+},
+{
+  "model": "planetarium.showsession",
+  "pk": 1,
+  "fields": {
+    "astronomy_show": 1,
+    "planetarium_dome": 1,
+    "show_time": "2023-08-30T15:15:00"
+  }
+},
+{
+  "model": "planetarium.showsession",
+  "pk": 2,
+  "fields": {
+    "astronomy_show": 2,
+    "planetarium_dome": 10,
+    "show_time": "2023-08-24T16:38:00"
+  }
+},
+{
+  "model": "planetarium.showsession",
+  "pk": 3,
+  "fields": {
+    "astronomy_show": 3,
+    "planetarium_dome": 15,
+    "show_time": "2023-08-18T15:37:00"
+  }
+},
+{
+  "model": "planetarium.reservation",
+  "pk": 4,
+  "fields": {
+    "created_at": "2023-08-28T13:31:02.453",
+    "user": 1
+  }
+},
+{
+  "model": "planetarium.reservation",
+  "pk": 5,
+  "fields": {
+    "created_at": "2023-08-28T13:36:39.725",
+    "user": 1
+  }
+},
+{
+  "model": "planetarium.reservation",
+  "pk": 6,
+  "fields": {
+    "created_at": "2023-08-28T13:36:52.240",
+    "user": 1
+  }
+},
+{
+  "model": "planetarium.reservation",
+  "pk": 7,
+  "fields": {
+    "created_at": "2023-08-28T13:37:15.214",
+    "user": 1
+  }
+},
+{
+  "model": "planetarium.reservation",
+  "pk": 8,
+  "fields": {
+    "created_at": "2023-08-28T13:37:20.924",
+    "user": 1
+  }
+},
+{
+  "model": "planetarium.reservation",
+  "pk": 9,
+  "fields": {
+    "created_at": "2023-08-28T13:37:26.935",
+    "user": 1
+  }
+},
+{
+  "model": "planetarium.ticket",
+  "pk": 5,
+  "fields": {
+    "row": 1,
+    "seat": 1,
+    "show_session": 1,
+    "reservation": 4
+  }
+},
+{
+  "model": "planetarium.ticket",
+  "pk": 6,
+  "fields": {
+    "row": 2,
+    "seat": 2,
+    "show_session": 1,
+    "reservation": 5
+  }
+},
+{
+  "model": "planetarium.ticket",
+  "pk": 7,
+  "fields": {
+    "row": 3,
+    "seat": 3,
+    "show_session": 1,
+    "reservation": 6
+  }
+},
+{
+  "model": "planetarium.ticket",
+  "pk": 8,
+  "fields": {
+    "row": 3,
+    "seat": 4,
+    "show_session": 1,
+    "reservation": 7
+  }
+},
+{
+  "model": "planetarium.ticket",
+  "pk": 9,
+  "fields": {
+    "row": 3,
+    "seat": 5,
+    "show_session": 1,
+    "reservation": 8
+  }
+},
+{
+  "model": "planetarium.ticket",
+  "pk": 10,
+  "fields": {
+    "row": 3,
+    "seat": 6,
+    "show_session": 1,
+    "reservation": 9
+  }
+},
+{
+  "model": "user.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$P2JG55HgfPgWhKRcW9Dp7w$feoG6VrIvBOCpIWdZgiKCZEGbOWJ2K9CQGqcB5j53Aw=",
+    "last_login": "2023-08-26T18:39:16.941",
+    "is_superuser": true,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-08-14T16:00:36.684",
+    "email": "roman@roman.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Q8g1HotozrVWswmmTHCr8X$A18VqwP8e1FoxMRhZgRlY40q0zCFT9ZJTm21a2TdrqU=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-17T15:11:27.476",
+    "email": "user@user.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "user.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Sbwz0Fa8HgIjDxoHDlfOE8$tUb1zr9hBsuOPjhIGM0+IjsgZNjCZydotk/eC6KFHVY=",
+    "last_login": null,
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-17T15:16:21.882",
+    "email": "krolik@topotun.com",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

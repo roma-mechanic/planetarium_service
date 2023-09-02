@@ -50,9 +50,6 @@ class AstronomyShow(models.Model):
     )
     image = models.ImageField(null=True, upload_to=movie_image_file_path)
 
-    # class Meta:
-    #     ordering = ["title"]
-
     def __str__(self):
         return self.title
 
