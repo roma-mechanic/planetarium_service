@@ -95,7 +95,7 @@ DATABASES = {
         "PORT": "5432",
     }
 }
-
+"""Connect to sqlite3, for develop only"""
 # DATABASES = {
 #     "default": {
 #         "ENGINE": "django.db.backends.sqlite3",
