@@ -136,7 +136,7 @@ USE_TZ = False
 
 STATIC_URL = "static/"
 
-MEDIA_URL = "/media/"
+MEDIA_URL = "/uploads/"
 MEDIA_ROOT = "/vol/web/media"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -169,7 +169,7 @@ SPECTACULAR_SETTINGS = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": False,
 }
